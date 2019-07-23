@@ -42,7 +42,7 @@ class TreeStructure extends React.Component {
           </TreeNode>
         );
       }
-      return <TreeNode {...item} dataRef={item} />;
+      return <TreeNode {...item} dataRef={item} />
     });
 
 
