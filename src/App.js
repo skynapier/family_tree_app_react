@@ -58,7 +58,10 @@ class App extends React.Component {
         
         <Content style={{ padding: '0 50px' }}>
           {breadcrumb}
-          <div style={{ background: '#fff', padding: 24, minHeight: 1100, }}><Test1></Test1></div>
+          <div className= "wrap">
+            <Test1></Test1>
+          </div>
+          {/* <div style={{ background: '#fff', padding: 24, minHeight: 1100, }}><Test1></Test1></div> */}
         </Content>
         <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
       </Layout>

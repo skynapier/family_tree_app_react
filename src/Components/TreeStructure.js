@@ -49,7 +49,7 @@ class TreeStructure extends React.Component {
     render() {
         return (
             <div>
-                <Tree loadData={this.onLoadData}>{this.renderTreeNodes(this.state.treeData)}</Tree>;
+                <Tree loadData={this.onLoadData}>{this.renderTreeNodes(this.state.treeData)}</Tree>
             </div>
         );
     }
