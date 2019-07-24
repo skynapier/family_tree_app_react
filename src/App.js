@@ -1,12 +1,12 @@
 import React from 'react';
-import Test1 from './Components/TreeStructure';
+import Show from './Components/TreeStructure'
+import HomePage from './Components/HomePage'; // 首页
 import './Css/App.css';
 import 'antd/dist/antd.css';
 import { Layout, Menu, Breadcrumb, Input } from 'antd';
-
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const { Header, Content, Footer } = Layout;
-const {Search} = Input;
 
 
 class App extends React.Component {
@@ -34,38 +34,38 @@ class App extends React.Component {
     }
 
     return (
-      <div className = "App" >
-      <Layout className="layout">
-        <Header>
-          <div className="logo" />
+      <Router>
+        <div className = "App" >
+        <Layout className="layout">
+          <Header>
+            <div className="logo" />
+            
+            <Menu
+              theme="dark"
+              mode="horizontal"
+              defaultSelectedKeys={['2']}
+              style={{ lineHeight: '64px' }}
+            >
+              
+              <Menu.Item key="1"><Link to= "/">Home</Link></Menu.Item>
+              <Menu.Item key="2"><Link to= "/Show">Show</Link></Menu.Item>
+              <Menu.Item key="3">Query</Menu.Item>
+            </Menu>
+          </Header>
           
-          <Menu
-            theme="dark"
-            mode="horizontal"
-            defaultSelectedKeys={['2']}
-            style={{ lineHeight: '64px' }}
-          >
-            <Search
-              placeholder="input search text"
-              onSearch={value => console.log(value)}
-              style={{ width: 200 }}
-            />
-            <Menu.Item key="1">Home</Menu.Item>
-            <Menu.Item key="2">Show</Menu.Item>
-            <Menu.Item key="3">Query</Menu.Item>
-          </Menu>
-        </Header>
+          <Content style={{ padding: '0 50px' }}>
+            {breadcrumb}
+            <div className= "wrap">
+              <Route path="/" exact component={HomePage} />
+              <Route path="/Show/" component={Show} />
+            </div>
+          </Content>
+          <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+        </Layout>
+
         
-        <Content style={{ padding: '0 50px' }}>
-          {breadcrumb}
-          <div className= "wrap">
-            <Test1></Test1>
-          </div>
-          {/* <div style={{ background: '#fff', padding: 24, minHeight: 1100, }}><Test1></Test1></div> */}
-        </Content>
-        <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
-      </Layout>
-    </div>
+      </div>
+      </Router>
     );
   }
 }
