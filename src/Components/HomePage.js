@@ -1,27 +1,13 @@
 import React from 'react';
 import { Form, Icon, Input, Button, Checkbox, PageHeader } from 'antd';
 import '../Css/HomePage.css';
-import axios from'axios';
+
  
 class Homepage extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {};
-  }
-
-  getData=()=>{
-    
-    var api = "http://127.0.0.1:3001/query";
-
-    axios.get(api)
-    .then( function(response){
-     
-      console.log(response.data)
-    } )
-    .catch( function(error){
-      console.log(error)
-    })
   }
 
   handleSubmit = e => {
@@ -41,7 +27,7 @@ class Homepage extends React.Component {
         
         <PageHeader title="Welcome"></PageHeader>
 
-        <Button onClick={this.getData}>Test for AJAX requriement</Button>
+        
 
         <Form onSubmit={this.handleSubmit} className="login-form">
           <Form.Item>

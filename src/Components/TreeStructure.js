@@ -1,5 +1,6 @@
 import React from 'react';
-import { Tree, Input } from 'antd';
+import { Tree, Input, Button } from 'antd';
+import axios from'axios';
 
 const { TreeNode } = Tree;
 const {Search} = Input;
@@ -12,7 +13,29 @@ class TreeStructure extends React.Component {
                 { title: 'Default Search', key: '0' },
               ],
           };
+       
     }
+
+
+    getData=()=>{
+    
+      var api = "http://127.0.0.1:3001/query";
+  
+      axios.get(api)
+      .then( (response)=>{
+        console.log(response.data);
+        
+        this.setState({
+          treeData: [{title:response.data.name, }]
+        });
+      
+        
+      } )
+      .catch( function(error){
+        console.log(error)
+      })
+    }
+
 
     onLoadData = treeNode =>
     new Promise(resolve => {
@@ -67,7 +90,8 @@ class TreeStructure extends React.Component {
                 onSearch={this.handleSearch}
                 style={{ width: 300, }}
                 />
-                
+                <br></br>
+                <Button onClick={this.getData}>Test for AJAX requriement</Button>
                 <Tree loadData={this.onLoadData}>{this.renderTreeNodes(this.state.treeData)}</Tree>
             </div>
         );

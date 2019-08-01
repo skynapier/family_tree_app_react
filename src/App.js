@@ -1,6 +1,7 @@
 import React from 'react';
 import Show from './Components/TreeStructure'
 import HomePage from './Components/HomePage'; 
+import Query from './Components/Query';
 import './Css/App.css';
 import 'antd/dist/antd.css';
 import { Layout, Menu, Breadcrumb, Input } from 'antd';
@@ -59,7 +60,7 @@ class App extends React.Component {
               
               <Menu.Item key="1"><Link to= "/">Home</Link></Menu.Item>
               <Menu.Item key="2"><Link to= "/Show">Show</Link></Menu.Item>
-              <Menu.Item key="3">Query</Menu.Item>
+              <Menu.Item key="3"><Link to= "/Query">Query</Link></Menu.Item>
             </Menu>
           </Header>
           
@@ -69,6 +70,7 @@ class App extends React.Component {
             <div className= "wrap">
               <Route path="/" exact component={HomePage} />
               <Route path="/Show/" component={Show} />
+              <Route path="/Query/" component={Query} />
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
