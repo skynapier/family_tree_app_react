@@ -56,8 +56,7 @@ class TreeStructure extends React.Component {
       this.setState({
         treeData:[...temp]
       });
-
-     
+    
     }
 
     render() {

@@ -1,0 +1,17 @@
+.welcome{
+    text-align: center;
+    
+}
+
+.welcome .login-form {
+    max-width: 300px;
+    margin:100px auto;
+  }
+
+.welcome .login-form-forgot {
+    float: right;
+  }
+
+.welcome .login-form-button {
+    width: 100%;
+  }
