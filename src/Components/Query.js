@@ -22,19 +22,11 @@ class Query extends React.Component {
         axios.get(api)
         .then( (response)=>{
           console.log(response.data);
-          var ret = [];
 
-          for (var key in this.state.data){
-            var value = this.state.data[key];
-            ret.push( <li key={key}>{value}</li>);
-            
-          }
-
-          console.log(ret);
           this.setState({
-            data:ret
+            data:this.state.data.concat(response.data)
           });
-        
+          console.log(this.state.data);
           
         } )
         .catch( function(error){
@@ -44,6 +36,9 @@ class Query extends React.Component {
 
 
     render() {
+      
+
+
         return (
             <div>
                 <Search
@@ -54,13 +49,13 @@ class Query extends React.Component {
                 <br></br>
                 <Button onClick={this.getData}>Test for AJAX requrie</Button>
                 <br></br>
-               
                 {
                   this.state.data.map( (value,key)=>{
-                    
-                    return <li key={key}>{value}</li>
+
+                    return <li key={key}>name:{value.name} father name: {value["father name"]}</li>;
                   })
                 }
+             
                 
                 
             </div>
