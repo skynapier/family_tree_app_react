@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Button } from 'antd';
+import { Input, Button, Popover } from 'antd';
 import axios from'axios';
 
 
@@ -47,12 +47,25 @@ class Query extends React.Component {
                 style={{ width: 300, }}
                 />
                 <br></br>
-                <Button onClick={this.getData}>Test for AJAX requrie</Button>
+                <Button onClick={this.getData}>Test for AJAX request;</Button>
                 <br></br>
                 {
                   this.state.data.map( (value,key)=>{
+                    var ret = []
+                    var name = "";
+                    for(var key in value){
+                      if(key != "name"){
+                        ret.push(<li key={key}>{key} : {value[key]} </li>);
+                      }
+                      else{
+                        name = value[key];                        
+                      }
+                      
+                    }
 
-                    return <li key={key}>name:{value.name} father name: {value["father name"]}</li>;
+                    return (<Popover content={ret} title="Family Info">
+                      <Button type="primary">{name}</Button>
+                    </Popover>);
                   })
                 }
              
