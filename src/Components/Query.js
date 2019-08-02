@@ -18,20 +18,24 @@ class Query extends React.Component {
     getData=()=>{
     
         var api = "http://127.0.0.1:3001/query";
-    
-        axios.get(api)
-        .then( (response)=>{
-          console.log(response.data);
+        setTimeout(
+          ()=>{
+            axios.get(api)
+            .then( (response)=>{
+              console.log(response.data);
 
-          this.setState({
-            data:this.state.data.concat(response.data)
-          });
-          console.log(this.state.data);
-          
-        } )
-        .catch( function(error){
-          console.log(error)
-        })
+              this.setState({
+                data:this.state.data.concat(response.data)
+              });
+              console.log(this.state.data);
+              
+            } )
+            .catch( function(error){
+              console.log(error)
+            })
+          },1000
+        );
+        
     }
 
 
