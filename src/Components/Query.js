@@ -40,9 +40,6 @@ class Query extends React.Component {
 
 
     render() {
-      
-
-
         return (
             <div>
                 <Search

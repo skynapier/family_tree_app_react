@@ -44,9 +44,6 @@ class TreeStructure extends React.Component {
         resolve();
         return;
       }
-      
-      console.log(this.state.treeData[0].title);
-      
       setTimeout( () => {
         treeNode.props.dataRef.children = [
           { title: 'Child Node', key: `${treeNode.props.eventKey}-0` },

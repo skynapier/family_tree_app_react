@@ -1,7 +1,7 @@
 {
   "name": "family_tree_interface",
   "version": "0.1.0",
-  "homepage": "https://skynapier.github.io/family_tree_app_react/",
+  "homepage": "https://dadeals.co.nz",
   "private": true,
   "dependencies": {
     "antd": "^3.20.5",
